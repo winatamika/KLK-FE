@@ -1,5 +1,3 @@
-// src/components/CRUD.js
-
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Alert from './Alert';
@@ -30,12 +28,11 @@ function Userlists() {
     }, []);
 
     useEffect(() => {
-        // Save user data to local storage whenever the 'users' state changes
         localStorage.setItem('userList', JSON.stringify(users));
     }, [users]);
 
     const handleFormChange = () => {
-        setAlert(null); // Clear any existing alert
+        setAlert(null); 
     };
 
 
@@ -116,15 +113,12 @@ function Userlists() {
     };
 
     const confirmDelete = () => {
-        // Perform the delete action here using the deleteItemId state
         const updatedUsers = users.filter((user) => user.id !== deleteItemId);
         setUsers(updatedUsers);
-        // Close the delete confirmation dialog
         setDeleteItemId(null);
     };
 
     const cancelDelete = () => {
-        // Close the delete confirmation dialog without deleting
         setDeleteItemId(null);
     };
 
@@ -222,7 +216,6 @@ function Userlists() {
 
             <div>
                 {alert && <Alert message={alert.message} type={alert.type} />}
-                {/* Rest of your code */}
             </div>
 
 
